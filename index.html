@@ -2,87 +2,115 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>My App Official Website</title>
+  <title>Merci - 友達ともくもく作業通話アプリ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts の読み込み -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* ページ全体のリセット・基本設定 */
-    body {
+    /* 全体のリセット */
+    *, *::before, *::after {
       margin: 0;
-      font-family: sans-serif;
-      background-color: #f9f9f9;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      color: #333;
+      line-height: 1.6;
       text-align: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
     }
-    /* コンテンツを中央にまとめるためのラッパ */
     .container {
-      max-width: 600px;
-      margin: 50px auto;
       background: #fff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      width: 100%;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
-    /* アプリのアイコン */
     .app-icon {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 20%;
-      object-fit: cover; /* アイコンが切れすぎないように調整 */
+      object-fit: cover;
+      margin-bottom: 20px;
     }
-    /* タイトル */
     h1 {
-      font-size: 1.8em;
-      margin: 20px 0 10px;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
     }
-    /* サブタイトル */
     h2 {
-      font-size: 1.2em;
-      color: #555;
-      margin: 0 0 20px;
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: #34495e;
     }
-    /* アプリ説明文 */
     .description {
+      font-size: 1rem;
+      color: #555;
       text-align: left;
       margin: 20px auto;
-      line-height: 1.6;
-      max-width: 500px;
+      max-width: 700px;
+      white-space: pre-wrap;
     }
-    /* ストアリンクの調整 */
     .store-links {
-      margin-top: 20px;
+      margin-top: 30px;
     }
     .store-links a {
       display: inline-block;
-      margin: 0 10px;
+      margin: 0 15px;
+      transition: transform 0.3s ease;
+    }
+    .store-links a:hover {
+      transform: scale(1.05);
     }
     .store-badge {
-      width: 150px; /* バッジ画像の大きさを調整 */
+      width: 160px;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.2rem;
+      }
+      .container {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- アプリのアイコン (画像パスは適宜差し替えてください) -->
+    <!-- アプリのアイコン (画像パスは適宜変更してください) -->
     <img src="app-icon.png" alt="アプリのアイコン" class="app-icon">
-
     <!-- アプリタイトル -->
-    <h1>My Awesome App</h1>
-
+    <h1>merci</h1>
     <!-- サブタイトル -->
-    <h2>最高のアプリを体験しよう</h2>
-
+    <h2>友達ともくもく作業通話アプリ</h2>
     <!-- アプリの説明 -->
     <p class="description">
-      ここにアプリの概要や特徴などを記載します。<br>
-      例えば、このアプリがどのような課題を解決してくれるのか、  
-      どんな機能があるのかを簡潔にまとめましょう。
-    </p>
+merciは、友達と気軽に集まって作業ができる、作業通話に特化したSNSアプリです。
+いつでもサクッと集まって、みんなで一緒に作業を進めよう！
 
-    <!-- ストアリンク -->
+【スペース機能】
+マイスペースに参加すると、フレンド全員に「今いるよ！」という通知が届き、好きなときにフレンドのルームに遊びに行けます。
+
+【スペース内メッセージ】
+スペースにいる間だけ使えるチャット機能です。みんなで一緒にいる間だけ会話を楽しめ、その場のノリで話を弾ませましょう！
+
+【ダイレクトメッセージ】
+普通のDM機能です。メッセージや画像を気軽に送り合えるので、1対1でおしゃべりしたいときに最適です。
+    </p>
+    <!-- ストアリンク (画像バッジは適宜変更してください) -->
     <div class="store-links">
-      <!-- App Storeのリンク (実際のURLを差し替えてください) -->
-      <a href="https://apps.apple.com/jp/app/XXXXXXXX" target="_blank" rel="noopener noreferrer">
-        <!-- App Storeのバッジ画像 (ローカルやCDNなど好きなものを使用) -->
-        <img src="appstore-badge.png" alt="Download on the App Store" class="store-badge">
+      <a href="https://apps.apple.com/jp/app/id6624296767" target="_blank" rel="noopener noreferrer">
+        <img src="apple-store-badge.png" alt="App Store" class="store-badge">
       </a>
     </div>
   </div>

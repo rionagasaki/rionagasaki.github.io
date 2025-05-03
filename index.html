@@ -1,170 +1,223 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>merci - 友達ともくもく作業通話アプリ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Fonts の読み込み -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* 全体のリセット */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
-      color: #333;
-      line-height: 1.6;
-      text-align: center;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      background: #fff;
-      max-width: 800px;
-      width: 100%;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    }
-    .app-icon {
-      width: 150px;
-      height: 150px;
-      border-radius: 20%;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
-      color: #34495e;
-    }
-    .description {
-      font-size: 1rem;
-      color: #555;
-      text-align: left;
-      margin: 20px auto;
-      max-width: 700px;
-      white-space: pre-wrap;
-    }
-    .store-links {
-      margin-top: 30px;
-    }
-    .store-links a {
-      display: inline-block;
-      margin: 0 15px;
-      transition: transform 0.3s ease;
-    }
-    .store-links a:hover {
-      transform: scale(1.05);
-    }
-    .store-badge {
-      width: 160px;
-    }
-    /* フォームのスタイル */
-    .contact-form {
-      margin-top: 40px;
-      text-align: left;
-    }
-    .contact-form label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-    .contact-form input[type="text"],
-    .contact-form input[type="email"],
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      display: inline-block;
-      padding: 12px 20px;
-      font-size: 1rem;
-      background-color: #2c3e50;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .contact-form button:hover {
-      background-color: #34495e;
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
+  <head>
+    <meta charset="UTF-8" />
+    <title>merci - 友達ともくもく作業通話アプリ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts の読み込み -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* 全体のリセット */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      h2 {
-        font-size: 1.2rem;
-      }
-      .container {
+
+      body {
+        font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+        color: #333;
+        line-height: 1.6;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 20px;
       }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- アプリのアイコン (画像パスは適宜変更してください) -->
-    <img src="merci.png" alt="アプリのアイコン" class="app-icon">
-    <!-- アプリタイトル -->
-    <h1>merci</h1>
-    <!-- サブタイトル -->
-    <h2>友達ともくもく作業通話アプリ</h2>
-    <!-- アプリの説明 -->
-    <p class="description">
-merciは、友達と気軽に集まって作業ができる、作業通話に特化したSNSアプリです。
-いつでもサクッと集まって、みんなで一緒に作業を進めよう！
 
-【スペース機能】
-マイスペースに参加すると、フレンド全員に「今いるよ！」という通知が届き、好きなときにフレンドのルームに遊びに行けます。
+      .container {
+        background: #fff;
+        max-width: 800px;
+        width: 100%;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
 
-【スペース内メッセージ】
-スペースにいる間だけ使えるチャット機能です。みんなで一緒にいる間だけ会話を楽しめ、その場のノリで話を弾ませましょう！
+      .app-icon {
+        width: 150px;
+        height: 150px;
+        border-radius: 20%;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
 
-【ダイレクトメッセージ】
-普通のDM機能です。メッセージや画像を気軽に送り合えるので、1対1でおしゃべりしたいときに最適です。
-    </p>
-    <!-- ストアリンク (画像バッジは適宜変更してください) -->
-    <div class="store-links">
-      <a href="https://apps.apple.com/jp/app/id6624296767" target="_blank" rel="noopener noreferrer">
-        <img src="merci.png" alt="App Store" class="store-badge">
-      </a>
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #2c3e50;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        color: #34495e;
+      }
+
+      .description {
+        font-size: 1rem;
+        color: #555;
+        text-align: left;
+        margin: 20px auto;
+        max-width: 700px;
+        white-space: pre-wrap;
+      }
+
+      .store-links {
+        margin-top: 30px;
+      }
+
+      .store-links a {
+        display: inline-block;
+        margin: 0 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .store-links a:hover {
+        transform: scale(1.05);
+      }
+
+      .store-badge {
+        width: 160px;
+      }
+
+      /* フォームのスタイル */
+      .contact-form {
+        margin-top: 40px;
+        text-align: left;
+      }
+
+      .contact-form label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      .contact-form input[type='text'],
+      .contact-form input[type='email'],
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      .contact-form button {
+        display: inline-block;
+        padding: 12px 20px;
+        font-size: 1rem;
+        background-color: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .contact-form button:hover {
+        background-color: #34495e;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.2rem;
+        }
+        .container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- アプリのアイコン -->
+      <img src="merci.png" alt="アプリのアイコン" class="app-icon" />
+
+      <!-- アプリタイトル -->
+      <h1>merci</h1>
+
+      <!-- サブタイトル -->
+      <h2>友達ともくもく作業通話アプリ</h2>
+
+      <!-- アプリの説明 -->
+      <p class="description">
+        merciは、友達と気軽に集まって作業ができる、作業通話に特化したSNSアプリです。
+        <br />
+        いつでもサクッと集まって、みんなで一緒に作業を進めよう！
+        <br /><br />
+        【スペース機能】<br />
+        マイスペースに参加すると、フレンド全員に「今いるよ！」という通知が届き、
+        好きなときにフレンドのルームに遊びに行けます。
+        <br /><br />
+        【スペース内メッセージ】<br />
+        スペースにいる間だけ使えるチャット機能です。みんなで一緒にいる間だけ会話を楽しめ、
+        その場のノリで話を弾ませましょう！
+        <br /><br />
+        【ダイレクトメッセージ】<br />
+        普通のDM機能です。メッセージや画像を気軽に送り合えるので、
+        1対1でおしゃべりしたいときに最適です。
+      </p>
+
+      <!-- ストアリンク -->
+      <div class="store-links">
+        <a
+          href="https://apps.apple.com/jp/app/id6624296767"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src="merci.png" alt="App Store" class="store-badge" />
+        </a>
+      </div>
+
+      <!-- お問い合わせフォーム -->
+      <div class="contact-form">
+        <h2>お問い合わせ</h2>
+        <form id="contact-form">
+          <label for="name">お名前:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">メールアドレス:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">メッセージ:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">送信する</button>
+        </form>
+        <script>
+          document
+            .getElementById('contact-form')
+            .addEventListener('submit', function (e) {
+              e.preventDefault();
+              const name = encodeURIComponent(this.name.value);
+              const email = encodeURIComponent(this.email.value);
+              const message = encodeURIComponent(this.message.value);
+              const subject = encodeURIComponent('お問い合わせ');
+
+              const body = [
+                'お名前: ' + name,
+                'メールアドレス: ' + email,
+                'メッセージ:',
+                message,
+              ].join('\n');
+
+              location.href = `mailto:naga_ri@icloud.com?subject=${subject}&body=${body}`;
+            });
+        </script>
+      </div>
+      <!-- /お問い合わせフォーム -->
     </div>
-    <!-- ここからお問い合わせフォーム -->
-    <div class="contact-form">
-      <h2>お問い合わせ</h2>
-      <!-- mailto を利用したフォーム -->
-      <form action="mailto:naga_ri@icloud.com" method="post" enctype="text/plain">
-        <label for="name">お名前:</label>
-        <input type="text" id="name" name="name" placeholder="お名前を入力" required>
-
-        <label for="email">メールアドレス:</label>
-        <input type="email" id="email" name="email" placeholder="メールアドレスを入力" required>
-
-        <label for="message">メッセージ:</label>
-        <textarea id="message" name="message" rows="5" placeholder="お問い合わせ内容を入力" required></textarea>
-
-        <button type="submit">送信する</button>
-      </form>
-    </div>
-    <!-- ここまでお問い合わせフォーム -->
-  </div>
-</body>
+  </body>
 </html>
 

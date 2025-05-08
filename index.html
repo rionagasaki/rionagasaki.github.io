@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>merci - 友達ともくもく作業通話アプリ</title>
+    <title>merci - 友達ともくもく作業通話アプリ | ブラウザ版 & iOS版</title>
     <meta name="description" content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。気軽に集まって生産性を高めよう！" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -21,11 +21,23 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@YourTwitterHandle" />
-    <!-- Google Fonts の読み込み -->
+
+    <!-- JSON-LD Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "merci",
+      "url": "https://rionagasaki.github.io/"
+    }
+    </script>
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <style>
       /* リセット */
       *, *::before, *::after {
@@ -35,8 +47,8 @@
       }
       body {
         font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
-        background: linear-gradient(135deg, #1d1e22, #2e2f34);
-        color: #eef1f5;
+        background: #4A90E2; /* merciイメージの明るいブルー */
+        color: #333;
         min-height: 100vh;
         display: flex;
         align-items: center;
@@ -44,12 +56,12 @@
         padding: 20px;
       }
       .container {
-        background: #25262b;
+        background: #fff;
         max-width: 800px;
         width: 100%;
         padding: 40px;
         border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         text-align: center;
       }
       .app-icon {
@@ -58,17 +70,17 @@
         border-radius: 20%;
         object-fit: cover;
         margin-bottom: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       }
       h1 {
         font-size: 2.5rem;
         margin-bottom: 10px;
-        color: #ff8c00;
+        color: #4A90E2;
       }
       h2 {
         font-size: 1.5rem;
         margin-bottom: 30px;
-        color: #bbc2cf;
+        color: #555;
       }
       .app-links {
         display: flex;
@@ -86,30 +98,27 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       .btn-primary {
-        background: linear-gradient(45deg, #ff8c00, #ffa500);
-        color: #25262b;
-        box-shadow: 0 4px 15px rgba(255, 140, 0, 0.6);
+        background: linear-gradient(45deg, #4A90E2, #357ABD);
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(74,144,226,0.4);
       }
       .btn-secondary {
-        background: linear-gradient(45deg, #6a5acd, #7b68ee);
-        color: #eef1f5;
-        box-shadow: 0 4px 15px rgba(106, 90, 205, 0.6);
+        background: linear-gradient(45deg, #FFA500, #FFC04C);
+        color: #333;
+        box-shadow: 0 4px 15px rgba(255,165,0,0.4);
       }
       .btn:hover {
         transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
       }
       .description {
         font-size: 1rem;
-        color: #cfd3dc;
+        color: #666;
         text-align: left;
         margin: 20px auto;
         max-width: 700px;
         line-height: 1.6;
         white-space: pre-wrap;
-      }
-      .store-links img {
-        width: 160px;
       }
       .contact-form {
         margin-top: 40px;
@@ -119,7 +128,7 @@
         display: block;
         margin-bottom: 8px;
         font-weight: bold;
-        color: #eef1f5;
+        color: #333;
       }
       .contact-form input[type='text'],
       .contact-form input[type='email'],
@@ -127,18 +136,18 @@
         width: 100%;
         padding: 10px;
         margin-bottom: 20px;
-        border: 1px solid #555;
+        border: 1px solid #ccc;
         border-radius: 4px;
-        background: #1d1e22;
-        color: #eef1f5;
+        background: #f9f9f9;
+        color: #333;
         font-size: 1rem;
       }
       .contact-form button {
         display: inline-block;
         padding: 12px 20px;
         font-size: 1rem;
-        background-color: #ff8c00;
-        color: #25262b;
+        background-color: #4A90E2;
+        color: #fff;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -146,7 +155,7 @@
         transition: background-color 0.3s ease;
       }
       .contact-form button:hover {
-        background-color: #ffa500;
+        background-color: #357ABD;
       }
       @media (max-width: 768px) {
         h1 { font-size: 2rem; }
@@ -158,19 +167,13 @@
   </head>
   <body>
     <div class="container">
-      <!-- アイコン -->
       <img src="merci.png" alt="merciアイコン" class="app-icon" />
-      <!-- タイトル -->
       <h1>merci</h1>
       <h2>友達ともくもく作業通話アプリ</h2>
-
-      <!-- 主要リンク -->
       <div class="app-links">
-        <a href="http://merci-web.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">ブラウザ版を見る</a>
-        <a href="https://apps.apple.com/app/id6624296767" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">iOS版をダウンロード</a>
+        <a href="http://merci-web.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">ブラウザ版を見る</a>
+        <a href="https://apps.apple.com/app/id6624296767" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">iOS版をダウンロード</a>
       </div>
-
-      <!-- 説明 -->
       <p class="description">
         merciは、友達と気軽に集まって作業ができる、作業通話に特化したSNSアプリです。
         いつでもサクッと集まって、みんなで一緒に作業を進めよう！
@@ -184,20 +187,15 @@
         【ダイレクトメッセージ】
         普通のDM機能です。メッセージや画像を気軽に送り合えるので、1対1でおしゃべりしたいときに最適です。
       </p>
-
-      <!-- お問い合わせフォーム -->
       <div class="contact-form">
         <h2>お問い合わせ</h2>
         <form id="contact-form">
           <label for="name">お名前:</label>
           <input type="text" id="name" name="name" required />
-
           <label for="email">メールアドレス:</label>
           <input type="email" id="email" name="email" required />
-
           <label for="message">メッセージ:</label>
           <textarea id="message" name="message" rows="5" required></textarea>
-
           <button type="submit">送信する</button>
         </form>
         <script>

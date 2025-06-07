@@ -3,8 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <title>merci - 友達ともくもく作業通話アプリ | ブラウザ版 & iOS版</title>
-    <meta name="description" content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。気軽に集まって生産性を高めよう！" />
+    <meta
+      name="description"
+      content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。気軽に集まって生産性を高めよう！"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- 正規URL指定 -->
+    <link rel="canonical" href="https://lp.merci-web.com/" />
 
     <!-- PWA / アプリ設定 -->
     <meta name="application-name" content="merci" />
@@ -14,9 +20,12 @@
     <!-- Open Graph -->
     <meta property="og:site_name" content="merci" />
     <meta property="og:title" content="merci - 友達ともくもく作業通話アプリ" />
-    <meta property="og:description" content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。" />
-    <meta property="og:url" content="https://rionagasaki.github.io/" />
-    <meta property="og:image" content="https://rionagasaki.github.io/og-image.png" />
+    <meta
+      property="og:description"
+      content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。"
+    />
+    <meta property="og:url" content="https://lp.merci-web.com/" />
+    <meta property="og:image" content="https://lp.merci-web.com/og-image.png" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -24,12 +33,12 @@
 
     <!-- JSON-LD Schema.org -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "merci",
-      "url": "https://rionagasaki.github.io/"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "merci",
+        "url": "https://lp.merci-web.com/"
+      }
     </script>
 
     <!-- Google Fonts -->
@@ -40,14 +49,16 @@
 
     <style>
       /* リセット */
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       body {
-        font-family: 'Noto Sans JP', 'Montserrat', sans-serif;
-        background: #4A90E2; /* merciイメージの明るいブルー */
+        font-family: "Noto Sans JP", "Montserrat", sans-serif;
+        background: #4a90e2; /* merciイメージの明るいブルー */
         color: #333;
         min-height: 100vh;
         display: flex;
@@ -70,12 +81,12 @@
         border-radius: 20%;
         object-fit: cover;
         margin-bottom: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       }
       h1 {
         font-size: 2.5rem;
         margin-bottom: 10px;
-        color: #4A90E2;
+        color: #4a90e2;
       }
       h2 {
         font-size: 1.5rem;
@@ -98,18 +109,18 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
       .btn-primary {
-        background: linear-gradient(45deg, #4A90E2, #357ABD);
+        background: linear-gradient(45deg, #4a90e2, #357abd);
         color: #fff;
-        box-shadow: 0 4px 15px rgba(74,144,226,0.4);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
       }
       .btn-secondary {
-        background: linear-gradient(45deg, #FFA500, #FFC04C);
+        background: linear-gradient(45deg, #ffa500, #ffc04c);
         color: #333;
-        box-shadow: 0 4px 15px rgba(255,165,0,0.4);
+        box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
       }
       .btn:hover {
         transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
       }
       .description {
         font-size: 1rem;
@@ -130,8 +141,8 @@
         font-weight: bold;
         color: #333;
       }
-      .contact-form input[type='text'],
-      .contact-form input[type='email'],
+      .contact-form input[type="text"],
+      .contact-form input[type="email"],
       .contact-form textarea {
         width: 100%;
         padding: 10px;
@@ -146,7 +157,7 @@
         display: inline-block;
         padding: 12px 20px;
         font-size: 1rem;
-        background-color: #4A90E2;
+        background-color: #4a90e2;
         color: #fff;
         border: none;
         border-radius: 4px;
@@ -155,35 +166,54 @@
         transition: background-color 0.3s ease;
       }
       .contact-form button:hover {
-        background-color: #357ABD;
+        background-color: #357abd;
       }
       @media (max-width: 768px) {
-        h1 { font-size: 2rem; }
-        h2 { font-size: 1.2rem; }
-        .container { padding: 20px; }
-        .app-links { flex-direction: column; gap: 15px; }
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.2rem;
+        }
+        .container {
+          padding: 20px;
+        }
+        .app-links {
+          flex-direction: column;
+          gap: 15px;
+        }
       }
     </style>
   </head>
+
   <body>
     <div class="container">
       <img src="merci.png" alt="merciアイコン" class="app-icon" />
       <h1>merci</h1>
       <h2>友達ともくもく作業通話アプリ</h2>
       <div class="app-links">
-        <a href="http://merci-web.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">ブラウザ版を見る</a>
-        <a href="https://apps.apple.com/app/id6624296767" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">iOS版をダウンロード</a>
+        <a
+          href="http://merci-web.com/"
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >ブラウザ版を見る</a
+        >
+        <a
+          href="https://apps.apple.com/app/id6624296767"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+          >iOS版をダウンロード</a
+        >
       </div>
       <p class="description">
         merciは、友達と気軽に集まって作業ができる、作業通話に特化したSNSアプリです。
         いつでもサクッと集まって、みんなで一緒に作業を進めよう！
-
         【スペース機能】
         マイスペースに参加すると、フレンド全員に「今いるよ！」という通知が届き、好きなときにルームに遊びに行けます。
-
         【スペース内メッセージ】
         スペースにいる間だけ使えるチャット機能です。みんなで一緒にいる間だけ会話を楽しめ、その場のノリで話を弾ませましょう！
-
         【ダイレクトメッセージ】
         普通のDM機能です。メッセージや画像を気軽に送り合えるので、1対1でおしゃべりしたいときに最適です。
       </p>
@@ -199,15 +229,22 @@
           <button type="submit">送信する</button>
         </form>
         <script>
-          document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = encodeURIComponent(this.name.value);
-            const email = encodeURIComponent(this.email.value);
-            const message = encodeURIComponent(this.message.value);
-            const subject = encodeURIComponent('お問い合わせ');
-            const body = ['お名前: ' + name, 'メール: ' + email, 'メッセージ:', message].join('\n');
-            location.href = `mailto:naga_ri@icloud.com?subject=${subject}&body=${body}`;
-          });
+          document
+            .getElementById("contact-form")
+            .addEventListener("submit", function (e) {
+              e.preventDefault();
+              const name = encodeURIComponent(this.name.value);
+              const email = encodeURIComponent(this.email.value);
+              const message = encodeURIComponent(this.message.value);
+              const subject = encodeURIComponent("お問い合わせ");
+              const body = [
+                "お名前: " + name,
+                "メール: " + email,
+                "メッセージ:",
+                message,
+              ].join("\n");
+              location.href = `mailto:naga_ri@icloud.com?subject=${subject}&body=${body}`;
+            });
         </script>
       </div>
     </div>

@@ -2,251 +2,320 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>merci - 友達ともくもく作業通話アプリ | ブラウザ版 & iOS版</title>
-    <meta
-      name="description"
-      content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。気軽に集まって生産性を高めよう！"
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>merci – LP Wireframe (Zen Maru Gothic)</title>
 
-    <!-- 正規URL指定 -->
-    <link rel="canonical" href="https://lp.merci-web.com/" />
-
-    <!-- PWA / アプリ設定 -->
-    <meta name="application-name" content="merci" />
-    <meta name="apple-mobile-web-app-title" content="merci" />
-    <link rel="manifest" href="/manifest.json" />
-
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="merci" />
-    <meta property="og:title" content="merci - 友達ともくもく作業通話アプリ" />
-    <meta
-      property="og:description"
-      content="merciは友達ともくもく作業通話に特化したSNSアプリ。ブラウザ版とiOS版を公開中。"
-    />
-    <meta property="og:url" content="https://lp.merci-web.com/" />
-    <meta property="og:image" content="https://lp.merci-web.com/og-image.png" />
-
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@YourTwitterHandle" />
-
-    <!-- JSON-LD Schema.org -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "merci",
-        "url": "https://lp.merci-web.com/"
-      }
-    </script>
-
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Zen Maru Gothic -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap"
       rel="stylesheet"
     />
 
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      /* リセット */
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      :root {
+        --bg-color: #f0f3f9;
+        --text-color: #22355e;
+        --accent-color: #a7cdec;
       }
       body {
-        font-family: "Noto Sans JP", "Montserrat", sans-serif;
-        background: #4a90e2; /* merciイメージの明るいブルー */
-        color: #333;
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
+        font-family: "Zen Maru Gothic", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
       }
-      .container {
-        background: #fff;
-        max-width: 800px;
-        width: 100%;
-        padding: 40px;
-        border-radius: 16px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        text-align: center;
+      .accent {
+        color: var(--text-color);
       }
-      .app-icon {
-        width: 120px;
-        height: 120px;
-        border-radius: 20%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-      h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        color: #4a90e2;
-      }
-      h2 {
-        font-size: 1.5rem;
-        margin-bottom: 30px;
-        color: #555;
-      }
-      .app-links {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin-bottom: 40px;
-      }
-      .btn {
-        display: inline-block;
-        padding: 14px 28px;
-        font-size: 1rem;
-        font-weight: 700;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .btn-primary {
-        background: linear-gradient(45deg, #4a90e2, #357abd);
-        color: #fff;
-        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
-      }
-      .btn-secondary {
-        background: linear-gradient(45deg, #ffa500, #ffc04c);
-        color: #333;
-        box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
-      }
-      .btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      }
-      .description {
-        font-size: 1rem;
-        color: #666;
-        text-align: left;
-        margin: 20px auto;
-        max-width: 700px;
-        line-height: 1.6;
-        white-space: pre-wrap;
-      }
-      .contact-form {
-        margin-top: 40px;
-        text-align: left;
-      }
-      .contact-form label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-        color: #333;
-      }
-      .contact-form input[type="text"],
-      .contact-form input[type="email"],
-      .contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background: #f9f9f9;
-        color: #333;
-        font-size: 1rem;
-      }
-      .contact-form button {
-        display: inline-block;
-        padding: 12px 20px;
-        font-size: 1rem;
-        background-color: #4a90e2;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 700;
-        transition: background-color 0.3s ease;
-      }
-      .contact-form button:hover {
-        background-color: #357abd;
-      }
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2rem;
-        }
-        h2 {
-          font-size: 1.2rem;
-        }
-        .container {
-          padding: 20px;
-        }
-        .app-links {
-          flex-direction: column;
-          gap: 15px;
-        }
+      .placeholder-box {
+        @apply bg-gray-200 border border-gray-400 rounded-md flex items-center justify-center text-gray-500;
       }
     </style>
   </head>
-
   <body>
-    <div class="container">
-      <img src="merci.png" alt="merciアイコン" class="app-icon" />
-      <h1>merci</h1>
-      <h2>友達ともくもく作業通話アプリ</h2>
-      <div class="app-links">
-        <a
-          href="http://merci-web.com/"
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          >ブラウザ版を見る</a
+    <!-- HERO -->
+    <section class="bg-white border-b border-gray-300 py-20">
+      <div class="max-w-5xl mx-auto px-6 text-center space-y-6">
+        <div class="flex justify-center mb-6">
+          <img
+            src="merci.png"
+            alt="merci app icon"
+            class="w-24 h-24 rounded-2xl shadow-lg mx-auto"
+          />
+        </div>
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight accent">
+          merci /メルシー<br />作業通話アプリ
+        </h1>
+        <p class="text-lg md:text-2xl text-gray-500">
+          作業通話をお探しの方へ！merciが快適な作業通話を提供します😊
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-6 justify-center pt-6 items-center"
         >
-        <a
-          href="https://apps.apple.com/app/id6624296767"
-          class="btn btn-secondary"
-          target="_blank"
-          rel="noopener noreferrer"
-          >iOS版をダウンロード</a
+          <div class="flex gap-4">
+            <a
+              href="https://apps.apple.com/app/id6624296767"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="appstore.png"
+                alt="Download on the App Store"
+                class="h-12"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.merci.app"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="googleplay.png"
+                alt="Get it on Google Play"
+                class="h-12"
+              />
+            </a>
+          </div>
+          <a
+            href="/web"
+            class="px-8 py-3 bg-[#A7CDEC] text-white rounded-lg font-bold"
+          >
+            ブラウザ版を使う
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-20 bg-white border-b border-gray-300">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-14 accent">
+          merciの機能を簡単に！
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">友だちと気軽にスタート</h3>
+            <p>
+              友だちが作業を始めると通知が届きます。気が向いたときにふらっと参加できる自由な作業スペースです。
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">作業友だちを作ろう</h3>
+            <p>
+              merciの公開スペースでは、みんなに公開されている作業通話に誰でも気軽に参加できます😊
+              一緒に作業を頑張る仲間を見つけよう✨
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">集中サポート機能</h3>
+            <p>
+              環境音やポモドーロタイマーなど、作業に必要なツールがすべて揃っています🎵
+              生産性を最大化しよう🚀
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="py-20 bg-gray-100 border-b border-gray-300">
+      <div class="max-w-5xl mx-auto px-6 space-y-12">
+        <h2 class="text-3xl font-bold text-center accent">
+          使い方はとっても簡単！すぐに作業通話が始められる。
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">1. マイスペースを開く</h3>
+            <p>
+              「マイスペース」をクリックして、自分だけの作業ルームに入ろう。
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">2. 招待する</h3>
+            <p>
+              「招待」ボタンをクリックするか、リンクをコピーして友だちを呼ぼう。
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-semibold mb-2">
+              3. タイマーをセットして作業
+            </h3>
+            <p>
+              みんなで集まってポモドーロタイマーを開始し、一緒に集中作業しよう。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEVICE SHOWCASE -->
+    <section class="py-20 bg-white border-b border-gray-300">
+      <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
+        <h2 class="text-3xl font-bold accent">サービスイメージ</h2>
+        <div
+          class="flex flex-col md:flex-row items-center justify-center gap-8"
         >
+          <img
+            src="mobile.png"
+            alt="Mobile screenshot"
+            class="w-64 md:w-72 rounded-lg shadow-lg"
+          />
+          <img
+            src="desktop.png"
+            alt="Desktop screenshot"
+            class="w-80 md:w-[28rem] rounded-lg shadow-lg"
+          />
+        </div>
       </div>
-      <p class="description">
-        merciは、友達と気軽に集まって作業ができる、作業通話に特化したSNSアプリです。
-        いつでもサクッと集まって、みんなで一緒に作業を進めよう！
-        【スペース機能】
-        マイスペースに参加すると、フレンド全員に「今いるよ！」という通知が届き、好きなときにルームに遊びに行けます。
-        【スペース内メッセージ】
-        スペースにいる間だけ使えるチャット機能です。みんなで一緒にいる間だけ会話を楽しめ、その場のノリで話を弾ませましょう！
-        【ダイレクトメッセージ】
-        普通のDM機能です。メッセージや画像を気軽に送り合えるので、1対1でおしゃべりしたいときに最適です。
-      </p>
-      <div class="contact-form">
-        <h2>お問い合わせ</h2>
-        <form id="contact-form">
-          <label for="name">お名前:</label>
-          <input type="text" id="name" name="name" required />
-          <label for="email">メールアドレス:</label>
-          <input type="email" id="email" name="email" required />
-          <label for="message">メッセージ:</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-          <button type="submit">送信する</button>
-        </form>
-        <script>
-          document
-            .getElementById("contact-form")
-            .addEventListener("submit", function (e) {
-              e.preventDefault();
-              const name = encodeURIComponent(this.name.value);
-              const email = encodeURIComponent(this.email.value);
-              const message = encodeURIComponent(this.message.value);
-              const subject = encodeURIComponent("お問い合わせ");
-              const body = [
-                "お名前: " + name,
-                "メール: " + email,
-                "メッセージ:",
-                message,
-              ].join("\n");
-              location.href = `mailto:naga_ri@icloud.com?subject=${subject}&body=${body}`;
-            });
-        </script>
+    </section>
+
+    <!-- VIP MEMBERSHIP -->
+    <section class="py-20 bg-gray-100 border-b border-gray-300">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-6 accent">🥳 VIPメンバーシップ</h2>
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8"
+        >
+          <div class="bg-white p-6 rounded-lg shadow w-full sm:w-1/3">
+            <p class="font-semibold text-xl mb-2">VIPプラン</p>
+            <p class="text-3xl font-extrabold mb-4">¥500 / 月</p>
+            <a
+              href="#"
+              class="inline-block px-6 py-3 bg-[#A7CDEC] text-white rounded-lg font-bold"
+              >まずは無料で始める</a
+            >
+          </div>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img src="adblock.png" alt="広告なし" class="h-8 mb-2" />
+            <p class="text-sm">広告なし</p>
+          </div>
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img src="vipspace.png" alt="VIPスペースの作成" class="h-8 mb-2" />
+            <p class="text-sm">VIPスペースを作成</p>
+          </div>
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img
+              src="trust.png"
+              alt="友だちにもVIP体験を提供"
+              class="h-8 mb-2"
+            />
+            <p class="text-sm">友だちにもVIP体験を提供</p>
+          </div>
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img
+              src="password.png"
+              alt="スペースにパスワード設定"
+              class="h-8 mb-2"
+            />
+            <p class="text-sm">スペースにパスワードを設定</p>
+          </div>
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img src="manypeople.png" alt="大規模スペース" class="h-8 mb-2" />
+            <p class="text-sm">大規模スペース(30人まで)</p>
+          </div>
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img src="voice.png" alt="通話の音量調整" class="h-8 mb-2" />
+            <p class="text-sm">通話の音量調整</p>
+          </div>
+          <div
+            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
+          >
+            <img src="repeat.png" alt="ポモドーロタイマー" class="h-8 mb-2" />
+            <p class="text-sm">ポモドーロタイマーの使用</p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-white border-b border-gray-300">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-14 accent">
+          ユーザーの声 /一部抜粋
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-lg shadow">
+            <p class="italic">
+              「最高です！シンプルで音質もよく、とても使いやすいです。VIPメンバーになるとお友達にだけスペースを公開できるようになるのも助かります。」
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <p class="italic">
+              「シンプルで感覚的に使えていい！Androidへの対応もぜひご検討いただきたいです😊」
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow">
+            <p class="italic">
+              「画期的なアプリです！作業通話に適した素晴らしいアプリだと思います。」
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 bg-gray-100 border-b border-gray-300">
+      <div class="max-w-5xl mx-auto px-6 space-y-8">
+        <h2 class="text-3xl font-bold text-center accent">FAQ</h2>
+        <details class="bg-white p-6 rounded-lg shadow">
+          <summary class="font-semibold cursor-pointer">
+            Q1: どのように友達に作業をしてることを知らせられる？
+          </summary>
+          <p class="mt-2">
+            マイスペースに入ると自動で通知が行きます。さらに特定のユーザーを招待したい場合は、「招待する」ボタンから招待できます。
+          </p>
+        </details>
+        <details class="bg-white p-6 rounded-lg shadow">
+          <summary class="font-semibold cursor-pointer">
+            Q2: 作業友だちをmerciで作りたいにはどうすればいい？
+          </summary>
+          <p class="mt-2">
+            スペースを開き、公開設定をオンにすると、アプリ内の誰でも参加できるようになります。面白い出会いが期待できます。
+          </p>
+        </details>
+        <details class="bg-white p-6 rounded-lg shadow">
+          <summary class="font-semibold cursor-pointer">
+            Q3: ゴーストモードとは？
+          </summary>
+          <p class="mt-2">
+            通常はマイスペースに入ると友達に通知が送られますが、ゴーストモードをオンにすると、設定している友達には通知が行きません。
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-20 bg-white">
+      <div class="max-w-lg mx-auto px-6 space-y-10">
+        <h2 class="text-3xl font-bold text-center accent">お問い合わせ</h2>
+        <div class="text-center">
+          <a
+            href="twitter://messages/compose?recipient_id=1848417651212861440"
+            class="inline-block w-full py-3 bg-[#A7CDEC] text-white rounded-lg font-bold"
+          >
+            Xでお問い合わせ
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-10 bg-gray-800 text-center text-gray-400 text-sm">
+      &copy; 2025 merci – rionagasaki
+    </footer>
   </body>
 </html>

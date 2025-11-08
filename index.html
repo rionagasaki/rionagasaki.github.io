@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>merci – LP Wireframe (Zen Maru Gothic)</title>
+    <title>merci - 作業通話アプリ | 今すぐ無料で始める</title>
 
     <!-- Google Fonts: Zen Maru Gothic -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
 
@@ -27,92 +27,265 @@
       .accent {
         color: var(--text-color);
       }
-      .placeholder-box {
-        @apply bg-gray-200 border border-gray-400 rounded-md flex items-center justify-center text-gray-500;
+      .cta-primary {
+        background: linear-gradient(135deg, #A7CDEC 0%, #95BFDC 100%);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-primary:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, #95BFDC 0%, #A7CDEC 100%);
+      }
+      .cta-primary:active {
+        transform: translateY(0);
+      }
+      .cta-secondary {
+        background: white;
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+      .cta-secondary:hover {
+        border-color: #A7CDEC;
+        transform: translateY(-2px);
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, rgba(167, 205, 236, 0.2) 0%, rgba(149, 191, 220, 0.15) 100%);
+        border: 2px solid rgba(167, 205, 236, 0.4);
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: #22355e;
+        letter-spacing: 0.025em;
+      }
+      .badge::before {
+        content: "🔥";
+        font-size: 1rem;
+      }
+      .feature-card {
+        transition: all 0.3s ease;
+      }
+      .feature-card:hover {
+        transform: translateY(-4px);
+      }
+      h2, h3 {
+        font-weight: 800;
+      }
+      @media (max-width: 640px) {
+        .cta-primary, .cta-secondary {
+          padding: 0.75rem !important;
+        }
+        .cta-primary img, .cta-secondary img {
+          height: 2.5rem !important;
+        }
+      }
+      header {
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(167, 205, 236, 0.2);
+      }
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .mobile-menu.open {
+        max-height: 500px;
+      }
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        z-index: 40;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .menu-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: #22355e;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+      }
+      .hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
       }
     </style>
   </head>
   <body>
+    <!-- Menu Overlay -->
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex items-center gap-3">
+            <img src="merci.png" alt="merci" class="w-10 h-10 rounded-xl" />
+            <span class="text-xl font-bold accent">merci</span>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-8">
+            <a href="#features" class="text-gray-700 hover:text-[#A7CDEC] transition-colors font-semibold">特徴</a>
+            <a href="https://docs.merci-web.com" target="_blank" rel="noopener" class="text-gray-700 hover:text-[#A7CDEC] transition-colors font-semibold">使い方</a>
+            <a href="#vip" class="text-gray-700 hover:text-[#A7CDEC] transition-colors font-semibold">VIP</a>
+          </nav>
+
+          <!-- Hamburger Menu Button -->
+          <button class="md:hidden hamburger" onclick="toggleMenu()" aria-label="メニュー">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu md:hidden">
+          <div class="py-4 space-y-4">
+            <a href="#features" onclick="toggleMenu()" class="block text-gray-700 hover:text-[#A7CDEC] transition-colors font-semibold py-2">特徴</a>
+            <a href="https://docs.merci-web.com" target="_blank" rel="noopener" class="block text-gray-700 hover:text-[#A7CDEC] transition-colors font-semibold py-2">使い方</a>
+            <a href="#vip" onclick="toggleMenu()" class="block text-gray-700 hover:text-[#A7CDEC] transition-colors font-semibold py-2">VIP</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.mobile-menu');
+        const hamburger = document.querySelector('.hamburger');
+        const overlay = document.querySelector('.menu-overlay');
+        menu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+        overlay.classList.toggle('open');
+      }
+    </script>
+
     <!-- HERO -->
-    <section class="bg-white border-b border-gray-300 py-20">
-      <div class="max-w-5xl mx-auto px-6 text-center space-y-6">
-        <div class="flex justify-center mb-6">
+    <section class="bg-white py-16 md:py-24 pt-24 md:pt-32">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+
+        <!-- App Icon -->
+        <div class="flex justify-center mb-8">
           <img
             src="merci.png"
             alt="merci app icon"
-            class="w-24 h-24 rounded-2xl shadow-lg mx-auto"
+            class="w-28 h-28 md:w-32 md:h-32 rounded-3xl"
           />
         </div>
-        <h1
-          class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight accent"
-        >
-          merci<br />作業通話アプリ
+
+        <!-- Main Headline -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 accent">
+          作業通話アプリ merci
         </h1>
-        <p class="text-lg md:text-2xl text-gray-500">
-          作業通話をお探しの方へ！merciが快適な作業通話を提供します😊
+
+        <!-- Sub Headline -->
+        <p class="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10">
+          友だちと、仲間と、一緒に集中できる作業通話アプリ。<br />
+          シンプルで使いやすく、作業に必要な機能がすべて揃っています。
         </p>
-        <div
-          class="flex flex-col sm:flex-row gap-6 justify-center pt-6 items-center"
-        >
-          <div class="flex gap-4">
+
+        <!-- Download Section -->
+        <div class="mb-8">
+          <!-- Mobile Apps -->
+          <div class="mb-8">
+            <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">モバイルアプリ</p>
+            <div class="flex gap-3 md:gap-4 justify-center flex-wrap">
+              <a
+                href="https://apps.apple.com/app/id6624296767"
+                target="_blank"
+                rel="noopener"
+                class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all"
+              >
+                <img
+                  src="appstore.png"
+                  alt="Download on the App Store"
+                  class="h-12 md:h-14"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
+                target="_blank"
+                rel="noopener"
+                class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all"
+              >
+                <img
+                  src="googleplay.png"
+                  alt="Get it on Google Play"
+                  class="h-12 md:h-14"
+                />
+              </a>
+            </div>
+          </div>
+
+          <!-- Web Version -->
+          <div class="pt-6 border-t border-gray-200 max-w-lg mx-auto">
+            <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">ブラウザ版</p>
             <a
-              href="https://apps.apple.com/app/id6624296767"
-              target="_blank"
-              rel="noopener"
+              href="https://www.merci-web.com/top"
+              class="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all group"
             >
-              <img
-                src="appstore.png"
-                alt="Download on the App Store"
-                class="h-12"
-              />
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
-              target="_blank"
-              rel="noopener"
-            >
-              <img
-                src="googleplay.png"
-                alt="Get it on Google Play"
-                class="h-12"
-              />
+              <img src="browser.png" alt="Browser" class="h-6 md:h-7 opacity-70 group-hover:opacity-100 transition-opacity" />
+              <span>ブラウザ版を使う</span>
             </a>
           </div>
-          <a
-            href="https://www.merci-web.com/top"
-            class="px-8 py-3 bg-[#A7CDEC] text-white rounded-lg font-bold"
-          >
-            ブラウザ版を使う
-          </a>
         </div>
       </div>
     </section>
 
     <!-- FEATURES -->
-    <section class="py-20 bg-white border-b border-gray-300">
-      <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-14 accent">
-          merciの機能を簡単に！
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">友だちと気軽にスタート</h3>
-            <p>
-              友だちが作業を始めると通知が届きます。気が向いたときにふらっと参加できる自由な作業スペースです。
+    <section id="features" class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl mb-3 accent">
+            merciが選ばれる理由
+          </h2>
+          <p class="text-gray-600 text-lg">作業通話に必要な機能が、すべて揃っています</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200">
+            <div class="text-4xl mb-4">📱</div>
+            <h3 class="text-xl font-bold mb-3 accent">シンプルで使いやすい</h3>
+            <p class="text-gray-700 leading-relaxed">
+              直感的なインターフェースで誰でもすぐに使い始められます。iOS・Android両対応。
             </p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">作業友だちを作ろう</h3>
-            <p>
-              merciの公開スペースでは、みんなに公開されている作業通話に誰でも気軽に参加できます😊
-              一緒に作業を頑張る仲間を見つけよう✨
+
+          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200">
+            <div class="text-4xl mb-4">👥</div>
+            <h3 class="text-xl font-bold mb-3 accent">作業仲間と繋がる</h3>
+            <p class="text-gray-700 leading-relaxed">
+              友だちが作業を始めると通知が届く。公開スペースで新しい作業仲間も見つかる。
             </p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">集中サポート機能</h3>
-            <p>
-              環境音やポモドーロタイマーなど、作業に必要なツールがすべて揃っています🎵
-              生産性を最大化しよう🚀
+
+          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200">
+            <div class="text-4xl mb-4">⚡</div>
+            <h3 class="text-xl font-bold mb-3 accent">集中をサポート</h3>
+            <p class="text-gray-700 leading-relaxed">
+              ポモドーロタイマー、環境音、通話音量調整など、集中に必要な機能が充実。
             </p>
           </div>
         </div>
@@ -120,198 +293,351 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="py-20 bg-gray-100 border-b border-gray-300">
-      <div class="max-w-5xl mx-auto px-6 space-y-12">
-        <h2 class="text-3xl font-bold text-center accent">
-          使い方はとっても簡単！すぐに作業通話が始められる。
-        </h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">1. マイスペースを開く</h3>
-            <p>
-              「マイスペース」をクリックして、自分だけの作業ルームに入ろう。
-            </p>
+    <section id="how-it-works" class="py-16 md:py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl mb-3 accent">
+            使い方はとってもシンプル
+          </h2>
+          <p class="text-gray-600 text-lg">たった3ステップで作業通話が始められます</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div class="relative">
+            <div class="absolute -top-3 -left-3 w-10 h-10 bg-[#A7CDEC] rounded-full flex items-center justify-center text-white font-bold text-lg">1</div>
+            <div class="bg-white p-8 rounded-xl border-2 border-gray-200 h-full">
+              <h3 class="text-xl font-bold mb-3 accent">アプリをダウンロード</h3>
+              <p class="text-gray-700 leading-relaxed">
+                App StoreまたはGoogle Playから無料ダウンロード。簡単な登録で完了。
+              </p>
+            </div>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">2. 招待する</h3>
-            <p>
-              「招待」ボタンをクリックするか、リンクをコピーして友だちを呼ぼう。
-            </p>
+
+          <div class="relative">
+            <div class="absolute -top-3 -left-3 w-10 h-10 bg-[#A7CDEC] rounded-full flex items-center justify-center text-white font-bold text-lg">2</div>
+            <div class="bg-white p-8 rounded-xl border-2 border-gray-200 h-full">
+              <h3 class="text-xl font-bold mb-3 accent">友だちを招待</h3>
+              <p class="text-gray-700 leading-relaxed">
+                友だちを招待するか、公開スペースで新しい作業仲間を見つけよう。
+              </p>
+            </div>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <h3 class="text-xl font-semibold mb-2">
-              3. タイマーをセットして作業
-            </h3>
-            <p>
-              みんなで集まってポモドーロタイマーを開始し、一緒に集中作業しよう。
-            </p>
+
+          <div class="relative">
+            <div class="absolute -top-3 -left-3 w-10 h-10 bg-[#A7CDEC] rounded-full flex items-center justify-center text-white font-bold text-lg">3</div>
+            <div class="bg-white p-8 rounded-xl border-2 border-gray-200 h-full">
+              <h3 class="text-xl font-bold mb-3 accent">作業開始</h3>
+              <p class="text-gray-700 leading-relaxed">
+                タイマーをセット、環境音を流して、最高の集中タイムを。
+              </p>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BROWSER DEMO VIDEO -->
+    <section class="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <div class="inline-block px-4 py-2 bg-[#A7CDEC]/20 rounded-full text-sm font-bold mb-3 accent">ブラウザ版</div>
+          <h2 class="text-3xl md:text-4xl mb-3 accent">
+            アプリ不要ですぐに使える
+          </h2>
+          <p class="text-gray-600 text-lg">インストール不要、ブラウザで今すぐ作業通話を開始</p>
+        </div>
+
+        <!-- Video Container -->
+        <div class="relative rounded-2xl overflow-hidden mb-8 bg-gray-900">
+          <video
+            class="w-full h-auto"
+            controls
+            preload="metadata"
+            poster="desktop.png"
+          >
+            <source src="https://merci-screen-recordings.s3.ap-northeast-1.amazonaws.com/screen-recording-2025-11-08.mp4" type="video/mp4">
+            お使いのブラウザは動画タグをサポートしていません。
+          </video>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center">
+          <a
+            href="https://www.merci-web.com/top"
+            class="inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-[#A7CDEC] to-[#95BFDC] text-white rounded-xl font-bold text-lg transform hover:scale-105 transition-all"
+          >
+            <img src="browser.png" alt="Browser" class="h-7 md:h-8" />
+            <span>ブラウザ版を試す</span>
+          </a>
         </div>
       </div>
     </section>
 
     <!-- DEVICE SHOWCASE -->
-    <section class="py-20 bg-white border-b border-gray-300">
-      <div class="max-w-5xl mx-auto px-6 text-center space-y-12">
-        <h2 class="text-3xl font-bold accent">サービスイメージ</h2>
-        <div
-          class="flex flex-col md:flex-row items-center justify-center gap-8"
-        >
-          <img
-            src="mobile.png"
-            alt="Mobile screenshot"
-            class="w-64 md:w-72 rounded-lg shadow-lg"
-          />
-          <img
-            src="desktop.png"
-            alt="Desktop screenshot"
-            class="w-80 md:w-[28rem] rounded-lg shadow-lg"
-          />
+    <section class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <div class="mb-12">
+          <h2 class="text-3xl md:text-4xl mb-3 accent">
+            どんなデバイスでも使える
+          </h2>
+          <p class="text-gray-600 text-lg">スマホでも、PCでも、快適な作業通話体験</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+          <div class="transition-transform hover:scale-105">
+            <img
+              src="mobile.png"
+              alt="Mobile screenshot"
+              class="w-64 md:w-72 rounded-2xl"
+            />
+            <p class="mt-4 text-gray-600 font-semibold">モバイル版</p>
+          </div>
+          <div class="transition-transform hover:scale-105">
+            <img
+              src="desktop.png"
+              alt="Desktop screenshot"
+              class="w-80 md:w-[30rem] rounded-2xl"
+            />
+            <p class="mt-4 text-gray-600 font-semibold">デスクトップ版</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- VIP MEMBERSHIP -->
-    <section class="py-20 bg-gray-100 border-b border-gray-300">
-      <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-bold mb-6 accent">🥳 VIPメンバーシップ</h2>
-        <div
-          class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8"
-        >
-          <div class="bg-white p-6 rounded-lg shadow w-full sm:w-1/3">
-            <p class="font-semibold text-xl mb-2">VIPプラン</p>
-            <p class="text-3xl font-extrabold mb-4">¥500 / 月</p>
-            <a
-              href="#"
-              class="inline-block px-6 py-3 bg-[#A7CDEC] text-white rounded-lg font-bold"
-              >まずは無料で始める</a
-            >
+    <section id="vip" class="py-16 md:py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <div class="inline-block px-4 py-2 bg-[#A7CDEC]/20 rounded-full text-sm font-bold mb-3 accent">VIPメンバーシップ</div>
+          <h2 class="text-3xl md:text-4xl mb-3 accent">
+            さらに快適な作業体験を
+          </h2>
+          <p class="text-lg text-gray-600">プレミアム機能で、集中力を最大化</p>
+        </div>
+
+        <!-- Pricing Card -->
+        <div class="max-w-md mx-auto mb-12">
+          <div class="bg-white p-8 md:p-10 rounded-2xl border-2 border-[#A7CDEC]">
+            <p class="text-gray-600 font-semibold text-lg mb-2">VIPプラン</p>
+            <div class="mb-6">
+              <span class="text-5xl md:text-6xl font-black accent">¥500</span>
+              <span class="text-gray-600 text-xl">/ 月</span>
+            </div>
+            <div class="flex gap-3 justify-center mb-4">
+              <a
+                href="https://apps.apple.com/app/id6624296767"
+                target="_blank"
+                rel="noopener"
+                class="cta-primary rounded-xl p-3 inline-block transform hover:scale-105 transition-all"
+              >
+                <img
+                  src="appstore.png"
+                  alt="App Store"
+                  class="h-10"
+                />
+              </a>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
+                target="_blank"
+                rel="noopener"
+                class="cta-primary rounded-xl p-3 inline-block transform hover:scale-105 transition-all"
+              >
+                <img
+                  src="googleplay.png"
+                  alt="Google Play"
+                  class="h-10"
+                />
+              </a>
+            </div>
+            <p class="text-sm text-gray-600 font-semibold mb-1">アプリ内でVIP登録可能</p>
+            <p class="text-xs text-gray-500">まずは無料プランからお試しください</p>
           </div>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-6">
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img src="adblock.png" alt="広告なし" class="h-8 mb-2" />
-            <p class="text-sm">広告なし</p>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="adblock.png" alt="広告なし" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">広告なし</p>
           </div>
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img src="vipspace.png" alt="VIPスペースの作成" class="h-8 mb-2" />
-            <p class="text-sm">VIPスペースを作成</p>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="vipspace.png" alt="VIPスペース" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">VIPスペース作成</p>
           </div>
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img
-              src="trust.png"
-              alt="友だちにもVIP体験を提供"
-              class="h-8 mb-2"
-            />
-            <p class="text-sm">友だちにもVIP体験を提供</p>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="trust.png" alt="友だちも快適" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">友だちもVIP体験</p>
           </div>
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img
-              src="password.png"
-              alt="スペースにパスワード設定"
-              class="h-8 mb-2"
-            />
-            <p class="text-sm">スペースにパスワードを設定</p>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="password.png" alt="パスワード" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">パスワード設定</p>
           </div>
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img src="manypeople.png" alt="大規模スペース" class="h-8 mb-2" />
-            <p class="text-sm">大規模スペース(30人まで)</p>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="manypeople.png" alt="大規模" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">30人まで対応</p>
           </div>
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img src="voice.png" alt="通話の音量調整" class="h-8 mb-2" />
-            <p class="text-sm">通話の音量調整</p>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="voice.png" alt="音量調整" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">音量調整</p>
           </div>
-          <div
-            class="flex flex-col items-center bg-white p-4 rounded-lg shadow"
-          >
-            <img src="repeat.png" alt="ポモドーロタイマー" class="h-8 mb-2" />
-            <p class="text-sm">ポモドーロタイマーの使用</p>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
+            <img src="repeat.png" alt="ポモドーロ" class="h-10 mx-auto mb-3" />
+            <p class="font-semibold text-gray-700">ポモドーロ使用</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200 flex items-center justify-center">
+            <p class="font-semibold text-2xl text-gray-700">+ more</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="py-20 bg-white border-b border-gray-300">
-      <div class="max-w-5xl mx-auto px-6">
-        <h2 class="text-3xl font-bold text-center mb-14 accent">
-          ユーザー様の声 /一部抜粋
-        </h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow">
-            <p class="italic">
-              「最高です！シンプルで音質もよく、とても使いやすいです。VIPメンバーになるとお友達にだけスペースを公開できるようになるのも助かります。」
+    <section class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl mb-3 accent">
+            ユーザーの声
+          </h2>
+          <p class="text-gray-600 text-lg">実際にmerciを使っている方々の感想</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-xl">★★★★★</div>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              「最高です！シンプルで音質もよく、とても使いやすい。VIPメンバーになると友達にだけスペースを公開できるのも助かります。」
             </p>
+            <p class="text-sm text-gray-500">App Store レビューより</p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <p class="italic">
-              「シンプルで感覚的に使えていい！Androidへの対応もぜひご検討いただきたいです😊」
+
+          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-xl">★★★★★</div>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              「シンプルで感覚的に使えていい！Android対応も本当にありがたいです。」
             </p>
+            <p class="text-sm text-gray-500">Google Play レビューより</p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow">
-            <p class="italic">
+
+          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="flex text-yellow-400 text-xl">★★★★★</div>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-4">
               「画期的なアプリです！作業通話に適した素晴らしいアプリだと思います。」
             </p>
+            <p class="text-sm text-gray-500">App Store レビューより</p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-12">
+          <div class="flex gap-3 md:gap-4 justify-center flex-wrap mb-4">
+            <a
+              href="https://apps.apple.com/app/id6624296767"
+              target="_blank"
+              rel="noopener"
+              class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all shadow-lg"
+            >
+              <img
+                src="appstore.png"
+                alt="Download on the App Store"
+                class="h-12 md:h-14"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
+              target="_blank"
+              rel="noopener"
+              class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all shadow-lg"
+            >
+              <img
+                src="googleplay.png"
+                alt="Get it on Google Play"
+                class="h-12 md:h-14"
+              />
+            </a>
+          </div>
+
+          <!-- Web Version Link -->
+          <div class="mt-6 pt-6 border-t border-gray-300 max-w-md mx-auto">
+            <a
+              href="https://www.merci-web.com/top"
+              class="inline-flex items-center gap-3 px-6 md:px-8 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all shadow-md group"
+            >
+              <img src="browser.png" alt="Browser" class="h-6 opacity-70 group-hover:opacity-100 transition-opacity" />
+              <span>ブラウザ版を使う</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="py-20 bg-gray-100 border-b border-gray-300">
-      <div class="max-w-5xl mx-auto px-6 space-y-8">
-        <h2 class="text-3xl font-bold text-center accent">FAQ</h2>
-        <details class="bg-white p-6 rounded-lg shadow">
-          <summary class="font-semibold cursor-pointer">
-            Q1: どのように友達に作業をしてることを知らせられる？
-          </summary>
-          <p class="mt-2">
-            マイスペースに入ると自動で通知が行きます。さらに特定のユーザーを招待したい場合は、「招待する」ボタンから招待できます。
-          </p>
-        </details>
-        <details class="bg-white p-6 rounded-lg shadow">
-          <summary class="font-semibold cursor-pointer">
-            Q2: 作業友だちをmerciで作りたいにはどうすればいい？
-          </summary>
-          <p class="mt-2">
-            スペースを開き、公開設定をオンにすると、アプリ内の誰でも参加できるようになります。面白い出会いが期待できます。
-          </p>
-        </details>
-        <details class="bg-white p-6 rounded-lg shadow">
-          <summary class="font-semibold cursor-pointer">
-            Q3: ゴーストモードとは？
-          </summary>
-          <p class="mt-2">
-            通常はマイスペースに入ると友達に通知が送られますが、ゴーストモードをオンにすると、設定している友達には通知が行きません。
-          </p>
-        </details>
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl mb-3 accent">よくある質問</h2>
+          <p class="text-gray-600 text-lg">merciについて気になることをまとめました</p>
+        </div>
+
+        <div class="space-y-4">
+          <details class="group bg-gray-50 p-6 md:p-8 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-[#A7CDEC] transition-all">
+            <summary class="font-bold text-lg text-gray-800 list-none flex items-center justify-between">
+              <span>友達に作業中であることを知らせるには？</span>
+              <span class="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              マイスペースに入ると自動で通知が届きます。特定のユーザーを招待したい場合は「招待する」ボタンから簡単に招待できます。
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 p-6 md:p-8 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-[#A7CDEC] transition-all">
+            <summary class="font-bold text-lg text-gray-800 list-none flex items-center justify-between">
+              <span>作業仲間を見つけるには？</span>
+              <span class="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              スペースの公開設定をオンにすると、アプリ内の誰でも参加できるようになります。新しい作業仲間との出会いが楽しめます。
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 p-6 md:p-8 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-[#A7CDEC] transition-all">
+            <summary class="font-bold text-lg text-gray-800 list-none flex items-center justify-between">
+              <span>ゴーストモードとは？</span>
+              <span class="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              通常はマイスペースに入ると友達に通知が送られますが、ゴーストモードをオンにすると通知が行きません。集中したいときに便利です。
+            </p>
+          </details>
+
+          <details class="group bg-gray-50 p-6 md:p-8 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-[#A7CDEC] transition-all">
+            <summary class="font-bold text-lg text-gray-800 list-none flex items-center justify-between">
+              <span>無料プランでできることは？</span>
+              <span class="text-2xl group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-4 text-gray-700 leading-relaxed">
+              作業通話、友達招待、公開スペース参加など基本機能は全て無料でご利用いただけます。VIPプランではさらに快適な機能が追加されます。
+            </p>
+          </details>
+        </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="py-20 bg-white">
-      <div class="max-w-lg mx-auto px-6 space-y-10">
-        <h2 class="text-3xl font-bold text-center accent">お問い合わせ</h2>
-        <div class="text-center">
-          <a
-            href="twitter://messages/compose?recipient_id=1848417651212861440"
-            class="inline-block w-full py-3 bg-[#A7CDEC] text-white rounded-lg font-bold"
-          >
-            Xでお問い合わせ
-          </a>
-        </div>
+    <section class="py-16 md:py-20 bg-gray-50">
+      <div class="max-w-lg mx-auto px-6 text-center">
+        <h2 class="text-3xl mb-6 accent">お問い合わせ</h2>
+        <a
+          href="twitter://messages/compose?recipient_id=1848417651212861440"
+          class="cta-primary inline-block px-8 py-3 text-white rounded-xl font-bold hover:opacity-90 transition-opacity"
+        >
+          Xでお問い合わせ
+        </a>
       </div>
     </section>
 

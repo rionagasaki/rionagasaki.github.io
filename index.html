@@ -132,6 +132,35 @@
       .hamburger.open span:nth-child(3) {
         transform: rotate(-45deg) translate(6px, -6px);
       }
+
+      /* --- アニメーション用追加CSS --- */
+
+      /* スクロール時のふわっと表示 */
+      .scroll-fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .scroll-fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ヒーローセクションの初期表示アニメーション */
+      .hero-entry {
+        opacity: 0;
+        animation: heroSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @keyframes heroSlideUp {
+        from { opacity: 0; transform: translateY(20px); scale: 0.98; }
+        to { opacity: 1; transform: translateY(0); scale: 1; }
+      }
+
+      /* 時間差で表示するための遅延クラス */
+      .delay-100 { animation-delay: 0.1s; transition-delay: 0.1s; }
+      .delay-200 { animation-delay: 0.2s; transition-delay: 0.2s; }
+      .delay-300 { animation-delay: 0.3s; transition-delay: 0.3s; }
     </style>
   </head>
   <body>
@@ -194,23 +223,23 @@
           <img
             src="merci.svg"
             alt="merci app icon"
-            class="w-28 h-28 md:w-32 md:h-32 rounded-3xl"
+            class="w-28 h-28 md:w-32 md:h-32 rounded-3xl hero-entry"
           />
         </div>
 
         <!-- Main Headline -->
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 accent">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6 accent hero-entry delay-100">
           作業通話アプリ merci
         </h1>
 
         <!-- Sub Headline -->
-        <p class="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10">
+        <p class="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 hero-entry delay-200">
           友だちと、仲間と、一緒に集中できる作業通話アプリ。<br />
           シンプルで使いやすく、作業に必要な機能がすべて揃っています。
         </p>
 
         <!-- Download Section -->
-        <div class="mb-8">
+        <div class="mb-8 hero-entry delay-300">
           <!-- Mobile Apps -->
           <div class="mb-8">
             <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">モバイルアプリ</p>
@@ -260,7 +289,7 @@
     <!-- FEATURES -->
     <section id="features" class="py-16 md:py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <h2 class="text-3xl md:text-4xl mb-3 accent">
             merciが選ばれる理由
           </h2>
@@ -268,7 +297,7 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200">
+          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200 scroll-fade-up delay-100">
             <div class="text-4xl mb-4">📱</div>
             <h3 class="text-xl font-bold mb-3 accent">シンプルで使いやすい</h3>
             <p class="text-gray-700 leading-relaxed">
@@ -276,7 +305,7 @@
             </p>
           </div>
 
-          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200">
+          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200 scroll-fade-up delay-200">
             <div class="text-4xl mb-4">👥</div>
             <h3 class="text-xl font-bold mb-3 accent">作業仲間と繋がる</h3>
             <p class="text-gray-700 leading-relaxed">
@@ -284,7 +313,7 @@
             </p>
           </div>
 
-          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200">
+          <div class="feature-card bg-white p-8 rounded-xl border border-gray-200 scroll-fade-up delay-300">
             <div class="text-4xl mb-4">⚡</div>
             <h3 class="text-xl font-bold mb-3 accent">集中をサポート</h3>
             <p class="text-gray-700 leading-relaxed">
@@ -298,7 +327,7 @@
     <!-- HOW IT WORKS -->
     <section id="how-it-works" class="py-16 md:py-20 bg-white">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <h2 class="text-3xl md:text-4xl mb-3 accent">
             使い方はとってもシンプル
           </h2>
@@ -306,7 +335,7 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-          <div class="relative">
+          <div class="relative scroll-fade-up delay-100">
             <div class="absolute -top-3 -left-3 w-10 h-10 bg-[#A7CDEC] rounded-full flex items-center justify-center text-white font-bold text-lg">1</div>
             <div class="bg-white p-8 rounded-xl border-2 border-gray-200 h-full">
               <h3 class="text-xl font-bold mb-3 accent">アプリをダウンロード</h3>
@@ -316,7 +345,7 @@
             </div>
           </div>
 
-          <div class="relative">
+          <div class="relative scroll-fade-up delay-200">
             <div class="absolute -top-3 -left-3 w-10 h-10 bg-[#A7CDEC] rounded-full flex items-center justify-center text-white font-bold text-lg">2</div>
             <div class="bg-white p-8 rounded-xl border-2 border-gray-200 h-full">
               <h3 class="text-xl font-bold mb-3 accent">友だちを招待</h3>
@@ -326,7 +355,7 @@
             </div>
           </div>
 
-          <div class="relative">
+          <div class="relative scroll-fade-up delay-300">
             <div class="absolute -top-3 -left-3 w-10 h-10 bg-[#A7CDEC] rounded-full flex items-center justify-center text-white font-bold text-lg">3</div>
             <div class="bg-white p-8 rounded-xl border-2 border-gray-200 h-full">
               <h3 class="text-xl font-bold mb-3 accent">作業開始</h3>
@@ -342,7 +371,7 @@
     <!-- BROWSER DEMO VIDEO -->
     <section class="py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
       <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <div class="inline-block px-4 py-2 bg-[#A7CDEC]/20 rounded-full text-sm font-bold mb-3 accent">ブラウザ版</div>
           <h2 class="text-3xl md:text-4xl mb-3 accent">
             アプリ不要ですぐに使える
@@ -351,7 +380,7 @@
         </div>
 
         <!-- Video Container -->
-        <div class="relative rounded-2xl overflow-hidden mb-8 bg-gray-900">
+        <div class="relative rounded-2xl overflow-hidden mb-8 bg-gray-900 scroll-fade-up">
           <video
             class="w-full h-auto"
             controls
@@ -379,7 +408,7 @@
     <!-- DEVICE SHOWCASE -->
     <section class="py-16 md:py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6 text-center">
-        <div class="mb-12">
+        <div class="mb-12 scroll-fade-up">
           <h2 class="text-3xl md:text-4xl mb-3 accent">
             どんなデバイスでも使える
           </h2>
@@ -387,7 +416,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-          <div class="transition-transform hover:scale-105">
+          <div class="transition-transform hover:scale-105 scroll-fade-up delay-100">
             <img
               src="mobile.png"
               alt="Mobile screenshot"
@@ -395,7 +424,7 @@
             />
             <p class="mt-4 text-gray-600 font-semibold">モバイル版</p>
           </div>
-          <div class="transition-transform hover:scale-105">
+          <div class="transition-transform hover:scale-105 scroll-fade-up delay-200">
             <img
               src="desktop.png"
               alt="Desktop screenshot"
@@ -410,7 +439,7 @@
     <!-- VIP MEMBERSHIP -->
     <section id="vip" class="py-16 md:py-20 bg-white">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <div class="inline-block px-4 py-2 bg-[#A7CDEC]/20 rounded-full text-sm font-bold mb-3 accent">VIPメンバーシップ</div>
           <h2 class="text-3xl md:text-4xl mb-3 accent">
             さらに快適な作業体験を
@@ -419,7 +448,7 @@
         </div>
 
         <!-- Pricing Card -->
-        <div class="max-w-md mx-auto mb-12">
+        <div class="max-w-md mx-auto mb-12 scroll-fade-up">
           <div class="bg-white p-8 md:p-10 rounded-2xl border-2 border-[#A7CDEC]">
             <p class="text-gray-600 font-semibold text-lg mb-2">VIPプラン</p>
             <div class="mb-6">
@@ -458,7 +487,7 @@
         </div>
 
         <!-- Features Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto scroll-fade-up">
           <div class="bg-gray-50 p-6 rounded-xl border-2 border-gray-200">
             <img src="adblock.svg" alt="広告なし" class="h-10 mx-auto mb-3" />
             <p class="font-semibold text-gray-700">広告なし</p>
@@ -497,7 +526,7 @@
     <!-- TESTIMONIALS -->
     <section class="py-16 md:py-20 bg-gray-50">
       <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <h2 class="text-3xl md:text-4xl mb-3 accent">
             ユーザーの声
           </h2>
@@ -505,7 +534,7 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-6 md:gap-8">
-          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md">
+          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md scroll-fade-up delay-100">
             <div class="flex items-center mb-4">
               <div class="flex text-yellow-400 text-xl">★★★★★</div>
             </div>
@@ -515,7 +544,7 @@
             <p class="text-sm text-gray-500">App Store レビューより</p>
           </div>
 
-          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md">
+          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md scroll-fade-up delay-200">
             <div class="flex items-center mb-4">
               <div class="flex text-yellow-400 text-xl">★★★★★</div>
             </div>
@@ -525,7 +554,7 @@
             <p class="text-sm text-gray-500">Google Play レビューより</p>
           </div>
 
-          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md">
+          <div class="bg-white p-8 rounded-xl border-2 border-gray-200 shadow-md scroll-fade-up delay-300">
             <div class="flex items-center mb-4">
               <div class="flex text-yellow-400 text-xl">★★★★★</div>
             </div>
@@ -582,12 +611,12 @@
     <!-- FAQ -->
     <section class="py-16 md:py-20 bg-white">
       <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <h2 class="text-3xl md:text-4xl mb-3 accent">よくある質問</h2>
           <p class="text-gray-600 text-lg">merciについて気になることをまとめました</p>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-4 scroll-fade-up">
           <details class="group bg-gray-50 p-6 md:p-8 rounded-xl border-2 border-gray-200 cursor-pointer hover:border-[#A7CDEC] transition-all">
             <summary class="font-bold text-lg text-gray-800 list-none flex items-center justify-between">
               <span>友達に作業中であることを知らせるには？</span>
@@ -634,14 +663,14 @@
     <!-- CONTACT -->
     <section class="py-16 md:py-20 bg-gray-50">
       <div class="max-w-3xl mx-auto px-6">
-        <div class="text-center mb-12">
+        <div class="text-center mb-12 scroll-fade-up">
           <h2 class="text-3xl md:text-4xl mb-3 accent">お問い合わせ</h2>
           <p class="text-gray-600 text-lg">ご質問やご意見がございましたら、お気軽にご連絡ください</p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
           <!-- Email Form -->
-          <div class="bg-white p-8 rounded-2xl border-2 border-gray-200">
+          <div class="bg-white p-8 rounded-2xl border-2 border-gray-200 scroll-fade-up delay-100">
             <div class="text-4xl mb-4 text-center">✉️</div>
             <h3 class="text-xl font-bold mb-4 accent text-center">メールで問い合わせ</h3>
             <form id="contact-form" action="https://formspree.io/f/mldarjpn" method="POST" class="space-y-4">
@@ -701,7 +730,7 @@
           </div>
 
           <!-- X DM -->
-          <div class="bg-white p-8 rounded-2xl border-2 border-gray-200 flex flex-col">
+          <div class="bg-white p-8 rounded-2xl border-2 border-gray-200 flex flex-col scroll-fade-up delay-200">
             <div class="text-4xl mb-4 text-center">𝕏</div>
             <h3 class="text-xl font-bold mb-4 accent text-center">XのDMで問い合わせ</h3>
             <p class="text-gray-600 text-center mb-6 flex-grow">
@@ -727,5 +756,31 @@
       </div>
       &copy; 2025 merci – rionagasaki
     </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // Intersection Observerの設定
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px 0px -10% 0px', // 画面の下10%くらいに来たら発火
+          threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target); // 一度表示されたら監視を終了
+            }
+          });
+        }, observerOptions);
+
+        // 監視対象の要素を取得してObserverに登録
+        document.querySelectorAll('.scroll-fade-up').forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
   </body>
 </html>

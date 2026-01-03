@@ -669,64 +669,19 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-          <!-- Email Form -->
-          <div class="bg-white p-8 rounded-2xl border-2 border-gray-200 scroll-fade-up delay-100">
+          <!-- Email Button -->
+          <div class="bg-white p-8 rounded-2xl border-2 border-gray-200 flex flex-col scroll-fade-up delay-100">
             <div class="text-4xl mb-4 text-center">✉️</div>
             <h3 class="text-xl font-bold mb-4 accent text-center">メールで問い合わせ</h3>
-            <form id="contact-form" action="https://formspree.io/f/mldarjpn" method="POST" class="space-y-4">
-              <div>
-                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">メールアドレス</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#A7CDEC] focus:outline-none transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">お問い合わせ内容</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows="4"
-                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#A7CDEC] focus:outline-none transition-colors resize-none"
-                  placeholder="ご質問やご意見をお聞かせください"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full cta-primary px-6 py-3 text-white rounded-xl font-bold hover:opacity-90 transition-opacity"
-              >
-                送信する
-              </button>
-            </form>
-            <script>
-              document.getElementById('contact-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                var form = this;
-                var data = new FormData(form);
-
-                fetch(form.action, {
-                  method: 'POST',
-                  body: data,
-                  headers: {
-                    'Accept': 'application/json'
-                  }
-                }).then(function(response) {
-                  if (response.ok) {
-                    alert('送信しました！お問い合わせありがとうございます。');
-                    form.reset();
-                  } else {
-                    alert('送信に失敗しました。もう一度お試しください。');
-                  }
-                }).catch(function(error) {
-                  alert('送信に失敗しました。もう一度お試しください。');
-                });
-              });
-            </script>
+            <p class="text-gray-600 text-center mb-6 flex-grow">
+              メールでのお問い合わせはこちらから。ご質問やご意見をお気軽にお送りください。
+            </p>
+            <a
+              href="mailto:mercisapoto@gmail.com"
+              class="block w-full cta-primary px-6 py-3 text-white rounded-xl font-bold hover:opacity-90 transition-opacity text-center"
+            >
+              メールを送る
+            </a>
           </div>
 
           <!-- X DM -->

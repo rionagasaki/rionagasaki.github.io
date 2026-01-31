@@ -204,6 +204,18 @@
     </header>
 
     <script>
+      // ログイン済みユーザーをmerci-web.comにリダイレクト
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        if (!params.has('checked')) {
+          // 本番: https://www.merci-web.com/auth-check
+          // ローカルテスト用:
+          const isDev = window.location.hostname === 'localhost';
+          const authCheckUrl = isDev ? 'http://localhost:3000/auth-check' : 'https://www.merci-web.com/auth-check';
+          window.location.href = authCheckUrl;
+        }
+      })();
+
       function toggleMenu() {
         const menu = document.querySelector('.mobile-menu');
         const hamburger = document.querySelector('.hamburger');

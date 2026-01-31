@@ -965,8 +965,9 @@
           observer.observe(el);
         });
 
-        // Mac判定：Macの場合のみデスクトップアプリセクションを表示
-        const isMac = /Mac|Macintosh/.test(navigator.userAgent);
+        // Mac判定：Macの場合のみデスクトップアプリセクションを表示（iOS除外）
+        const ua = navigator.userAgent;
+        const isMac = /Mac|Macintosh/.test(ua) && !/iPhone|iPad|iPod/.test(ua);
         if (isMac) {
           document.querySelectorAll('#desktop-app-section, #desktop-app-section-2').forEach(el => {
             el.style.display = 'inline-flex';

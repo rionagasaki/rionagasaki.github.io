@@ -432,60 +432,54 @@
 
         <!-- Download Section -->
         <div class="mb-8 hero-entry delay-300">
-          <!-- Mobile Apps -->
-          <div class="mb-8">
-            <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">モバイルアプリ</p>
-            <div class="flex gap-3 md:gap-4 justify-center flex-wrap">
-              <a
-                href="https://apps.apple.com/app/id6624296767"
-                target="_blank"
-                rel="noopener"
-                class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all"
-              >
-                <img
-                  src="appstore.svg"
-                  alt="Download on the App Store"
-                  class="h-12 md:h-14"
-                />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
-                target="_blank"
-                rel="noopener"
-                class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all"
-              >
-                <img
-                  src="googleplay.svg"
-                  alt="Get it on Google Play"
-                  class="h-12 md:h-14"
-                />
-              </a>
+          <div class="flex flex-col md:flex-row gap-8 justify-center max-w-3xl mx-auto">
+            <!-- スマホ -->
+            <div class="flex-1">
+              <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">スマホアプリ</p>
+              <div class="flex flex-col gap-3">
+                <a
+                  href="https://apps.apple.com/app/id6624296767"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                >
+                  <img src="appstore.svg" alt="App Store" class="h-6" />
+                  <span>iPhoneでダウンロード</span>
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                >
+                  <img src="googleplay.svg" alt="Google Play" class="h-6" />
+                  <span>Androidでダウンロード</span>
+                </a>
+              </div>
             </div>
-          </div>
 
-          <!-- Desktop App (Mac only) -->
-          <div id="desktop-app-section" class="pt-6 border-t border-gray-200 max-w-lg mx-auto mb-8" style="display: none;">
-            <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">デスクトップアプリ</p>
-            <a
-              href="https://merci-desktop-releases.s3.ap-northeast-1.amazonaws.com/mac/merci-app-v1.0.0.dmg"
-              id="mac-download-btn"
-              class="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all group"
-            >
-              <img src="mac-logo.png" alt="Mac" class="h-6 md:h-7 opacity-70 group-hover:opacity-100 transition-opacity" />
-              <span>Macでダウンロード</span>
-            </a>
-          </div>
-
-          <!-- Web Version -->
-          <div class="pt-6 border-t border-gray-200 max-w-lg mx-auto">
-            <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">ブラウザ版</p>
-            <a
-              href="https://merci-web.com/login"
-              class="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all group"
-            >
-              <img src="browser.svg" alt="Browser" class="h-6 md:h-7 opacity-70 group-hover:opacity-100 transition-opacity" />
-              <span>ブラウザ版を開く</span>
-            </a>
+            <!-- PC -->
+            <div class="flex-1">
+              <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">PC</p>
+              <div class="flex flex-col gap-3">
+                <a
+                  id="desktop-app-section"
+                  href="https://merci-desktop-releases.s3.ap-northeast-1.amazonaws.com/mac/merci-app-v1.0.0.dmg"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                  style="display: none;"
+                >
+                  <img src="mac-logo.png" alt="Mac" class="h-6" />
+                  <span>Macでダウンロード</span>
+                </a>
+                <a
+                  href="https://merci-web.com/login"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                >
+                  <img src="browser.svg" alt="Browser" class="h-6" />
+                  <span>ブラウザ版を開く</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -771,43 +765,55 @@
         </div>
 
         <!-- CTA -->
-        <div class="text-center mt-12">
-          <div class="flex gap-3 md:gap-4 justify-center flex-wrap mb-4">
-            <a
-              href="https://apps.apple.com/app/id6624296767"
-              target="_blank"
-              rel="noopener"
-              class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all shadow-lg"
-            >
-              <img
-                src="appstore.svg"
-                alt="Download on the App Store"
-                class="h-12 md:h-14"
-              />
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
-              target="_blank"
-              rel="noopener"
-              class="cta-primary rounded-2xl p-4 inline-block transform hover:scale-105 transition-all shadow-lg"
-            >
-              <img
-                src="googleplay.svg"
-                alt="Get it on Google Play"
-                class="h-12 md:h-14"
-              />
-            </a>
-          </div>
+        <div class="mt-12">
+          <div class="flex flex-col md:flex-row gap-8 justify-center max-w-3xl mx-auto">
+            <!-- スマホ -->
+            <div class="flex-1">
+              <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide text-center">スマホアプリ</p>
+              <div class="flex flex-col gap-3">
+                <a
+                  href="https://apps.apple.com/app/id6624296767"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                >
+                  <img src="appstore.svg" alt="App Store" class="h-6" />
+                  <span>iPhoneでダウンロード</span>
+                </a>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.merci.merci_android&hl=ja"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                >
+                  <img src="googleplay.svg" alt="Google Play" class="h-6" />
+                  <span>Androidでダウンロード</span>
+                </a>
+              </div>
+            </div>
 
-          <!-- Web Version Link -->
-          <div class="mt-6 pt-6 border-t border-gray-300 max-w-md mx-auto">
-            <a
-              href="https://merci-web.com/login"
-              class="inline-flex items-center gap-3 px-6 md:px-8 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all shadow-md group"
-            >
-              <img src="browser.svg" alt="Browser" class="h-6 opacity-70 group-hover:opacity-100 transition-opacity" />
-              <span>ブラウザ版を開く</span>
-            </a>
+            <!-- PC -->
+            <div class="flex-1">
+              <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide text-center">PC</p>
+              <div class="flex flex-col gap-3">
+                <a
+                  id="desktop-app-section-2"
+                  href="https://merci-desktop-releases.s3.ap-northeast-1.amazonaws.com/mac/merci-app-v1.0.0.dmg"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                  style="display: none;"
+                >
+                  <img src="mac-logo.png" alt="Mac" class="h-6" />
+                  <span>Macでダウンロード</span>
+                </a>
+                <a
+                  href="https://merci-web.com/login"
+                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
+                >
+                  <img src="browser.svg" alt="Browser" class="h-6" />
+                  <span>ブラウザ版を開く</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -962,10 +968,9 @@
         // Mac判定：Macの場合のみデスクトップアプリセクションを表示
         const isMac = /Mac|Macintosh/.test(navigator.userAgent);
         if (isMac) {
-          const desktopSection = document.getElementById('desktop-app-section');
-          if (desktopSection) {
-            desktopSection.style.display = 'block';
-          }
+          document.querySelectorAll('#desktop-app-section, #desktop-app-section-2').forEach(el => {
+            el.style.display = 'inline-flex';
+          });
         }
       });
     </script>

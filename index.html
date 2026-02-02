@@ -463,15 +463,6 @@
               <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide">PC</p>
               <div class="flex flex-col gap-3">
                 <a
-                  id="desktop-app-section"
-                  href="https://merci-desktop-releases.s3.ap-northeast-1.amazonaws.com/mac/merci-app-v1.0.0.dmg"
-                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
-                  style="display: none;"
-                >
-                  <img src="mac-logo.png" alt="Mac" class="h-6" />
-                  <span>Macでダウンロード</span>
-                </a>
-                <a
                   href="https://merci-web.com/login"
                   class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
                 >
@@ -797,15 +788,6 @@
               <p class="text-sm font-semibold text-gray-600 mb-4 uppercase tracking-wide text-center">PC</p>
               <div class="flex flex-col gap-3">
                 <a
-                  id="desktop-app-section-2"
-                  href="https://merci-desktop-releases.s3.ap-northeast-1.amazonaws.com/mac/merci-app-v1.0.0.dmg"
-                  class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
-                  style="display: none;"
-                >
-                  <img src="mac-logo.png" alt="Mac" class="h-6" />
-                  <span>Macでダウンロード</span>
-                </a>
-                <a
                   href="https://merci-web.com/login"
                   class="inline-flex items-center justify-center gap-3 px-6 py-3 bg-white text-gray-800 rounded-xl font-bold border-2 border-[#A7CDEC] hover:bg-[#A7CDEC] hover:text-white transition-all"
                 >
@@ -965,14 +947,6 @@
           observer.observe(el);
         });
 
-        // Mac判定：Macの場合のみデスクトップアプリセクションを表示（iOS除外）
-        const ua = navigator.userAgent;
-        const isMac = /Mac|Macintosh/.test(ua) && !/iPhone|iPad|iPod/.test(ua);
-        if (isMac) {
-          document.querySelectorAll('#desktop-app-section, #desktop-app-section-2').forEach(el => {
-            el.style.display = 'inline-flex';
-          });
-        }
       });
     </script>
   </body>
